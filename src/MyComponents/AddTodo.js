@@ -6,8 +6,6 @@ export const AddTodo = (props) => {
     const [desc, setDesc] = useState("");
     const [sno, setSno] = useState(0);
 
-    console.log(props.toodoEdit.title,"addtodo title")
-
     useEffect(() => {
         setTitle(props.toodoEdit.title);
         setDesc(props.toodoEdit.desc);

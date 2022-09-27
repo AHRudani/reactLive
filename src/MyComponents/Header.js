@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
-  console.log("props",props)
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">

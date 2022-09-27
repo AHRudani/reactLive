@@ -20,27 +20,20 @@ function App() {
     }
 
     const onDelete = (todo) => {
-      console.log("I am ondelete of todo", todo, todos);
-      // Deleting this way in react does not work
-      // let index = todos.indexOf(todo);
-      // todos.splice(index, 1);
-
       setTodos(todos.filter((e) => {
         return e !== todo;
       }));
-
       localStorage.setItem("todos", JSON.stringify(todos));
     }
 
     const [toodoEdit, setToodoEdit] = useState({});
     const onEdit = (todo) => {
-        setToodoEdit(todo);
-        document.querySelector('.update').style.display = "block";
-        document.querySelector('button[type=submit]').style.display = "none";
+      setToodoEdit(todo);
+      document.querySelector('.update').style.display = "block";
+      document.querySelector('button[type=submit]').style.display = "none";
     }
 
     const addTodo = (title, desc) => {
-      console.log("I am adding this todo", title, desc)
       let sno;
       if (todos.length === 0) {
         sno = 0;
@@ -53,15 +46,9 @@ function App() {
         desc: desc,
       }
       setTodos([...todos, myTodo]);
-      console.log(myTodo);
     }
 
     const updateTodo = (title,desc,sno) =>{
-      console.log(todos ,sno)
-      // var index = todos.findIndex(function(obj) {
-      //   return obj.sno == sno;
-      // });
-      
       const newState = todos.map(obj => {
         if (obj.sno === sno) {
           return {...obj, title: title , desc : desc};
@@ -74,7 +61,7 @@ function App() {
     const [todos, setTodos] = useState(initTodo);
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos));
-    }, [todos])
+    }, [todos]);
 
     return (
       <>
@@ -101,5 +88,5 @@ function App() {
       </>
     );
   }
-  
+
   export default App;
